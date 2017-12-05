@@ -30,7 +30,12 @@ const list = {
         {
             type: 'Animation',
             title: '动画',
-            list: []
+            list: [{
+                title: '圆环',
+                path: '/components/MultipleRing',
+                img: 'input.png',
+                icon: 'load-c'
+            }]
         },
         {
             type: 'Navigation',

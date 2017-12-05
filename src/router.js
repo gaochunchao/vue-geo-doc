@@ -25,6 +25,13 @@ const routers = [
         component: (resolve) => require(['./views/components/input.vue'], resolve)
     },
     {
+        path: '/components/MultipleRing',
+        meta: {
+            title: '动画圆环'
+        },
+        component: (resolve) => require(['./views/components/MultipleRing.vue'], resolve)
+    },
+    {
         path: '*',
         redirect: '/'
     }
