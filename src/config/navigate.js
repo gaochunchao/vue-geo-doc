@@ -45,7 +45,22 @@ const list = {
         {
             type: 'Chart',
             title: '图表',
-            list: []
+            list: [{
+                title: '柱状图',
+                path: '/components/barChart',
+                img: 'input.png',
+                icon: 'stats-bars'
+            },{
+                title: '饼状图',
+                path: '/components/pieChart',
+                img: 'input.png',
+                icon: 'pie-graph'
+            },{
+                title: '折线图',
+                path: '/components/lineChart',
+                img: 'input.png',
+                icon: 'arrow-graph-up-right'
+            }]
         },
         {
             type: 'Other',

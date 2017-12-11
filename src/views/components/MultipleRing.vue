@@ -1,3 +1,14 @@
+<style>
+    .ring-text{
+        font-weight: 700;
+        font-size: 14px;
+        background-color: #f63;
+        width: 60px;
+        margin: 0 auto;
+        border-radius: 10px;
+        color: #fff
+    }
+</style>
 <template>
     <i-article>
         <article>
@@ -11,6 +22,18 @@
                     <x-multiple-ring :size="70" :animate="false" :space="4" :outPercent="0.5" :outerWidth="6" outerColor="#386361"
                                      outTrailColor="#65e2f4" :innerWidth="6" innerColor="#edbaa0" innerTrailColor="#F63">
                         <div>社会保障</div>
+                    </x-multiple-ring>
+
+                    <x-multiple-ring :size="60" :animate="true" :space="4"
+                                :outPercent=0.5 :outerWidth="6" outerColor="#386361"
+                                outTrailColor="#65e2f4" :innerWidth="6" innerColor="#edbaa0"
+                                innerTrailColor="#F63">
+                        <div :style="rotateY(0)" style="color:#82dfec;">133554</div>
+                        <div :style="rotateY(0)">
+                            <div class="ring-text">
+                                +7.1%
+                            </div>
+                        </div>
                     </x-multiple-ring>
                 </div>
                 <div slot="desc">
@@ -135,28 +158,17 @@
         },
         data () {
             return {
-                code: Code,
-                value: '',
-                value1: '',
-                value2: '',
-                value3: '',
-                value4: '',
-                value5: '',
-                value6: '',
-                value7: '',
-                value8: '',
-                value9: '',
-                value10: '',
-                value11: '',
-                value12: '',
-                value13: '',
-                select1: 'http',
-                select2: 'com',
-                select3: 'day'
+                code: Code
             }
         },
         methods: {
-
+            rotateY(index) {
+                let trans = "";
+                if (index % 2) {
+                    trans = "transform: rotateY(180deg);";
+                }
+                return trans;
+            },
         }
     }
 </script>

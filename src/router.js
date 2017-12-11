@@ -32,6 +32,27 @@ const routers = [
         component: (resolve) => require(['./views/components/MultipleRing.vue'], resolve)
     },
     {
+        path: '/components/barChart',
+        meta: {
+            title: '柱状图'
+        },
+        component: (resolve) => require(['./views/components/barChart.vue'], resolve)
+    },
+    {
+        path: '/components/pieChart',
+        meta: {
+            title: '饼状图'
+        },
+        component: (resolve) => require(['./views/components/pieChart.vue'], resolve)
+    },
+    {
+        path: '/components/lineChart',
+        meta: {
+            title: '折线图'
+        },
+        component: (resolve) => require(['./views/components/lineChart.vue'], resolve)
+    },
+    {
         path: '*',
         redirect: '/'
     }

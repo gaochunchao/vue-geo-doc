@@ -83,7 +83,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
+                test: /\.(gif|jpg|png|woff|svg|eot|otf|ttf)\??.*$/,
                 loader: 'url-loader?limit=1024'
             },
             {
