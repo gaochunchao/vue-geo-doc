@@ -8,178 +8,126 @@ let code = {};
 
 code.base = `
 <template>
-    <pieChart text="经济" :colors="fsPie.colors" :item-data="fsPie.itemData" :selected="false" :radius='[38, 52]'
-      unit="%"></pieChart>
+<pie-chart :colors="fsPie.colors" :item-data="fsPie.itemData" :selected="false" :radius='[38, 52]' unit="%"></pie-chart>
 </template>
 <script>
   export default {
     data() {
       return {
         fsPie: {
-          colors: ["#25D4E7", "#FE6B40", "#459DF7", "#AF83E8", "#EBAE43"],
-          title: "工业废水行业分布",
-          itemData: [
-            {
-              value: 26,
-              name: "造纸和纸制品业"
-            },
-            {
-              value: 22,
-              name: "金属制品业"
-            },
-            {
-              value: 24,
-              name: "纺织业"
-            },
-            {
-              value: 29,
-              name: "其他"
-            }
-          ]
+            colors: ["#25D4E7", "#FE6B40", "#459DF7", "#AF83E8"],
+            title: "工业废水行业分布",
+            itemData: [
+                {
+                    value: 26,
+                    name: "造纸和纸制品业"
+                },
+                {
+                    value: 24,
+                    name: "金属制品业"
+                },
+                {
+                    value: 22,
+                    name: "纺织业"
+                },
+            ]
         }
       };
     }
   };
-</script>
-
-`;
+</script>`
 
 code.size = `
 <template>
-    <bar-chart :legend="lrZe1.legend" legPos="left" :xAxis="lrZe1.xAxis" :colorList="lrZe1.colorList" :series="lrZe1.series"
-        :axisLineClr="'#000'" :axisLalClr="'#000'" :legCrl="'#000'"></bar-chart>
+<pie-chart :type="'h'" :height="200" :width="180" :colors="fsPie.colors" :item-data="fsPie.itemData" :radius='[38, 52]' unit="%" :chartHeight="55"></pie-chart>
 </template>
 <script>
     export default {
         data () {
             return {
-                lrZe1: {
-                    legend: ["增幅", "全市累积"],
-                    xAxis: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                    colorList: ["#fe6b40", "#1f7be8"],
-                    series: [
+                fsPie: {
+                    colors: ["#25D4E7", "#FE6B40", "#459DF7", "#AF83E8"],
+                    title: "工业废水行业分布",
+                    itemData: [
                         {
-                        type: "bar",
-                        data: [287, 229, 333, 481, 367, 233, 148]
-                        },{
-                        type: "bar",
-                        data: [747, 658, 733, 581, 707, 683, 398]
-                        }
+                            value: 26,
+                            name: "造纸和纸制品业"
+                        },
+                        {
+                            value: 24,
+                            name: "金属制品业"
+                        },
+                        {
+                            value: 22,
+                            name: "纺织业"
+                        },
                     ]
                 }
             }
         }
     }
-</script>
-`;
+</script>`
 
-code.icon = `
+code.cover = `
 <template>
-    <Input v-model="value4" icon="ios-clock-outline" placeholder="Enter something..." style="width: 200px"></Input>
+<pie-chart text="经济" :colors="fsPie.colors" :itemData="fsPie.itemData" :selected="false" unit="%" :kind="'overlayPie'" :radius="[['40%','60%'],['50%','70%'],['60%','80%']]" :startAngle="[40,30,45]"></pie-chart>
 </template>
 <script>
     export default {
         data () {
             return {
-                value4: ''
+                fsPie: {
+                    colors: ["#25D4E7", "#FE6B40", "#459DF7", "#AF83E8"],
+                    title: "工业废水行业分布",
+                    itemData: [
+                        {
+                            value: 26,
+                            name: "造纸和纸制品业"
+                        },
+                        {
+                            value: 24,
+                            name: "金属制品业"
+                        },
+                        {
+                            value: 22,
+                            name: "纺织业"
+                        },
+                    ]
+                }
             }
         }
     }
-</script>
-`;
+</script>`
 
-code.textarea = `
+code.multi = `
 <template>
-    <Input v-model="value5" type="textarea" placeholder="Enter something..."></Input>
-    <Input v-model="value6" type="textarea" :rows="4" placeholder="Enter something..."></Input>
+<pieChart text="经济" :colors="fsPie.colors" :itemData="fsPie.itemData" :selected="false" :kind="'overlayPie'" :radius="[['40%','50%'],['50%','60%'],['60%','70%']]" :percent="true" :startAngle="[90,90,90]" unit="人" :hasRatio="true"></pieChart>
 </template>
 <script>
     export default {
         data () {
             return {
-                value5: '',
-                value6: ''
+                fsPie: {
+                    colors: ["#25D4E7", "#FE6B40", "#459DF7", "#AF83E8"],
+                    title: "工业废水行业分布",
+                    itemData: [
+                        {
+                            value: 26,
+                            name: "造纸和纸制品业"
+                        },
+                        {
+                            value: 24,
+                            name: "金属制品业"
+                        },
+                        {
+                            value: 22,
+                            name: "纺织业"
+                        },
+                    ]
+                }
             }
         }
     }
-</script>
-`;
-
-code.autosize = `
-<template>
-    <Input v-model="value7" type="textarea" :autosize="true" placeholder="Enter something..."></Input>
-    <Input v-model="value8" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter something..."></Input>
-</template>
-<script>
-    export default {
-        data () {
-            return {
-                value7: '',
-                value8: ''
-            }
-        }
-    }
-</script>
-`;
-
-code.disabled = `
-<template>
-    <Input v-model="value9" disabled placeholder="Enter something..."></Input>
-    <Input v-model="value10" disabled type="textarea" placeholder="Enter something..."></Input>
-</template>
-<script>
-    export default {
-        data () {
-            return {
-                value9: '',
-                value10: ''
-            }
-        }
-    }
-</script>
-`;
-
-code.addon = `
-<template>
-    <Input v-model="value11">
-        <span slot="prepend">http://</span>
-        <span slot="append">.com</span>
-    </Input>
-    <br>
-    <Input v-model="value12">
-        <Select v-model="select1" slot="prepend" style="width: 80px">
-            <Option value="http">http://</Option>
-            <Option value="https">https://</Option>
-        </Select>
-        <Select v-model="select2" slot="append" style="width: 70px">
-            <Option value="com">.com</Option>
-            <Option value="org">.org</Option>
-            <Option value="io">.io</Option>
-        </Select>
-    </Input>
-    <br>
-    <Input v-model="value13">
-        <Select v-model="select3" slot="prepend" style="width: 80px">
-            <Option value="day">Day</Option>
-            <Option value="month">Month</Option>
-        </Select>
-        <Button slot="append" icon="ios-search"></Button>
-    </Input>
-</template>
-<script>
-    export default {
-        data () {
-            return {
-                value11: '',
-                value12: '',
-                value13: '',
-                select1: 'http',
-                select2: 'com',
-                select3: 'day'
-            }
-        }
-    }
-</script>
-`;
+</script>`;
 
 export default code;

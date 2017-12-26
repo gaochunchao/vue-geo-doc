@@ -4,6 +4,16 @@ pre{
     padding: 0;
     margin: 0;
 }
+ul,
+ol {
+    list-style: none !important;
+    padding-left: 0 !important;
+}
+
+li{
+    margin-bottom: 0 !important;
+}
+
 code{
     display: inline-block;
     background: #f7f7f7;

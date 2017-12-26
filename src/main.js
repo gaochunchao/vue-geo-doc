@@ -8,11 +8,11 @@ import App from './components/app.vue';
 import Routers from './router';
 import Util from './libs/util';
 import vueGeo from 'vue-geo';
-import 'vue-geo/dist/styles/vue-geo.css'
 import iView from 'iview';
 import Env from './config/env';
 import bus from './components/bus';
 import 'iview/dist/styles/iview.css';
+import 'vue-geo/dist/styles/vue-geo.css'
 
 Vue.use(VueRouter);
 Vue.use(iView);

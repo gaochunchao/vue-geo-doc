@@ -13,10 +13,10 @@
             <Menu-group v-for="item in navigate.components" :key="item.type" :title="item.title">
                 <Menu-item v-for="component in item.list" :key="component.path" :name="component.path">
                     <i class="ivu-icon" :class="'ivu-icon-' + component.icon"></i>
-                    <templat>
+                    <template>
                         {{ component.title.split(' ')[0] }}
                         <span class="navigate-group-span">{{ component.title.split(' ')[1] }}</span>
-                    </templat>
+                    </template>
                 </Menu-item>
             </Menu-group>
         </Menu>

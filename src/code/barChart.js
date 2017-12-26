@@ -5,8 +5,7 @@ let code = {};
 
 code.base = `
 <template>
-     <bar-chart :xAxis="lrZe.xAxis" :colorList="lrZe.colorList" :series="lrZe.series"
-               :axisLineClr="'#000'" :axisLalClr="'#000'" :legCrl="'#000'" :gridBottom="30">
+     <bar-chart :xAxis="lrZe.xAxis" :colorList="lrZe.colorList" :series="lrZe.series" :tLabel="{show:false}">
     </bar-chart>
 </template>
 <script>
@@ -32,8 +31,7 @@ code.base = `
 
 code.size = `
 <template>
-    <bar-chart :legend="lrZe1.legend" legPos="left" :xAxis="lrZe1.xAxis" :colorList="lrZe1.colorList" :series="lrZe1.series"
-        :axisLineClr="'#000'" :axisLalClr="'#000'" :legCrl="'#000'"></bar-chart>
+<bar-chart :legend="lrZe1.legend" legPos="left" :xAxis="lrZe1.xAxis" :colorList="lrZe1.colorList" :series="lrZe1.series" :tLabel="{show:false}"></bar-chart>
 </template>
 <script>
     export default {
@@ -59,113 +57,145 @@ code.size = `
 </script>
 `;
 
-code.icon = `
+code.stack = `
 <template>
-    <Input v-model="value4" icon="ios-clock-outline" placeholder="Enter something..." style="width: 200px"></Input>
+<bar-chart :legend="lrZe2.legend" :xAxis="lrZe2.xAxis" :colorList="lrZe2.colorList" :series="lrZe2.series" :tLabel="{show:false}" :stack="true"></bar-chart>
 </template>
 <script>
     export default {
         data () {
             return {
-                value4: ''
+                lrZe2: {
+                    legend: ["增幅", "全市累积","年度利率"],
+                    xAxis: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    colorList: ["#fe6b40", "#1f7be8","#AF83E8"],
+                    series: [
+                        {
+                        type: "bar",
+                        data: [287, 229, 333, 481, 367, 233, 148]
+                        },{
+                        type: "bar",
+                        data: [747, 658, 733, 581, 707, 683, 398]
+                        },{
+                        type: "bar",
+                        data: [132, 102, 111, 254, 156, 148, 179]
+                        }
+                    ]
+                }
             }
         }
     }
 </script>
 `;
 
-code.textarea = `
+code.mix = `
 <template>
-    <Input v-model="value5" type="textarea" placeholder="Enter something..."></Input>
-    <Input v-model="value6" type="textarea" :rows="4" placeholder="Enter something..."></Input>
+<bar-chart :legend="lrZe3.legend" :xAxis="lrZe3.xAxis" :colorList="lrZe3.colorList" :series="lrZe3.series" :avDataLine="lrZe3.series[1].amount" :tLabel="{show:false}" :avLineCrl="lrZe3.avLineCrl" :isY="true"></bar-chart>
 </template>
 <script>
     export default {
         data () {
             return {
-                value5: '',
-                value6: ''
+                lrZe3: {
+                    legend: ["增幅", "全市累积"],
+                    xAxis: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+                    colorList: ["#fe6b40", "#1f7be8"],
+                    avLineCrl:["#AF83E8"],
+                    series: [
+                      {
+                        type: "bar",
+                        data: [287, 229, 333, 481, 367, 233, 148]
+                      },
+                      {
+                        type: "line",
+                        amount:[510],
+                        data: [747, 658, 733, 581, 707, 683, 398]
+                      }
+                    ]
+                }
             }
         }
     }
 </script>
 `;
 
-code.autosize = `
+code.zoom= `
 <template>
-    <Input v-model="value7" type="textarea" :autosize="true" placeholder="Enter something..."></Input>
-    <Input v-model="value8" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter something..."></Input>
+    <bar-chart :legend="lrZe.legend" :xAxis="lrZe.xAxis" :colorList="lrZe.colorList" :series="lrZe.series" :tLabel="{show:false}" :isDataZoom="true" :grid="{bottom:75}" :axisLabFmt="true" :wordsNum="1"></bar-chart>
 </template>
 <script>
     export default {
         data () {
             return {
-                value7: '',
-                value8: ''
+                lrZe: {
+                    xAxis: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+                    colorList: ["#fe6b40"],
+                    series: [
+                      {
+                        type: "bar",
+                        data: [287, 229, 333, 481, 367, 233, 148]
+                      }
+                    ]
+                },
             }
         }
     }
 </script>
-`;
+`
 
-code.disabled = `
+code.bgc=`
 <template>
-    <Input v-model="value9" disabled placeholder="Enter something..."></Input>
-    <Input v-model="value10" disabled type="textarea" placeholder="Enter something..."></Input>
+    <bar-chart :legend="lrZe.legend" :xAxis="lrZe.xAxis" :colorList="lrZe.colorList" :series="lrZe.series" :percent="true" :isHidden="true" :isBgc="true" :grid="{left:20}"></bar-chart>
 </template>
 <script>
     export default {
         data () {
             return {
-                value9: '',
-                value10: ''
+                lrZe: {
+                    xAxis: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+                    colorList: ["#fe6b40"],
+                    series: [
+                      {
+                        type: "bar",
+                        data: [287, 229, 333, 481, 367, 233, 148]
+                      }
+                    ],
+                    tLabel: {
+                      show: true,
+                      position: "right",
+                      formatter: "{c}",
+                      textStyle: {
+                        color: "#000"
+                      }
+                    }
+                },
             }
         }
     }
 </script>
-`;
+`
 
-code.addon = `
+code.H=`
 <template>
-    <Input v-model="value11">
-        <span slot="prepend">http://</span>
-        <span slot="append">.com</span>
-    </Input>
-    <br>
-    <Input v-model="value12">
-        <Select v-model="select1" slot="prepend" style="width: 80px">
-            <Option value="http">http://</Option>
-            <Option value="https">https://</Option>
-        </Select>
-        <Select v-model="select2" slot="append" style="width: 70px">
-            <Option value="com">.com</Option>
-            <Option value="org">.org</Option>
-            <Option value="io">.io</Option>
-        </Select>
-    </Input>
-    <br>
-    <Input v-model="value13">
-        <Select v-model="select3" slot="prepend" style="width: 80px">
-            <Option value="day">Day</Option>
-            <Option value="month">Month</Option>
-        </Select>
-        <Button slot="append" icon="ios-search"></Button>
-    </Input>
+<bar-chart :legend="lrZe.legend" :xAxis="lrZe.xAxis" :colorList="lrZe.colorList" :series="lrZe.series" :changeDir="true" :axisLineClr="'rgba(0,0,0,0)'" :tLabel="lrZe.tLabel" ></bar-chart>
 </template>
 <script>
     export default {
         data () {
             return {
-                value11: '',
-                value12: '',
-                value13: '',
-                select1: 'http',
-                select2: 'com',
-                select3: 'day'
+                lrZe: {
+                    xAxis: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+                    colorList: ["#fe6b40"],
+                    series: [
+                      {
+                        type: "bar",
+                        data: [287, 229, 333, 481, 367, 233, 148]
+                      }
+                    ]
+                },
             }
         }
     }
 </script>
-`;
-
+`
 export default code;
